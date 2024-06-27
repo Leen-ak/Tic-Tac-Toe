@@ -1,3 +1,9 @@
+/*
+* Name:		Leen Aboukhalil
+* Purpose:	Implementation of a Tic Tac Toe game with console interface and player interaction.
+* Date:		26/JUNE/2024
+*/
+
 #include "TicTacToe.h"
 #include <iostream>
 #include <iomanip>
