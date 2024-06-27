@@ -95,8 +95,15 @@ bool TicTacToe::checkWinner() {
 
 // Handle player's move
 bool TicTacToe::playerMove(char player, char& input, char symbol) {
-    std::cout << "Player " << player << " -> '" << symbol << "', Enter a number: ";
-    std::cin >> input;
+    wrongInput = false; 
+    bool validMove = false; 
+
+   while(!validMove){
+       if (wrongInput) //if wrongInput was true that means there is an error appears so it will set the color to gray 
+           setColor(8);
+
+       std::cout << "Player " << player << " -> '" << symbol << "', Enter a number: ";
+       std::cin >> input;
 
     auto it = std::find(board.begin(), board.end(), input);
     for (int i = 0; i < board.size(); ++i) {
@@ -106,26 +113,20 @@ bool TicTacToe::playerMove(char player, char& input, char symbol) {
                 board[i] = symbol;
                 system("cls"); // Clear screen (Windows specific)
                 TicTacToe::printBoard();
+                validMove = true;
                 break;
             }
         }
-        else {
-            if (!wrongInput) {
-                setColor(8); // Set color for error message
-                std::cout << "Choose a number between (1 - 9). Error: <" << input << ">" << std::endl;
-                std::cout << "Player " << player << " -> '" << symbol << "', Enter a number: ";
-                std::cin >> input;
-                resetColor(); // Reset color to default
-
-                it = board.begin();
-                it = std::find(board.begin(), board.end(), input);
-                if (it != board.end())
-                    wrongInput = true;
-                else
-                    continue;
-            }
-        }
     }
+
+    if (!validMove) {
+        if (!wrongInput) {
+            setColor(8); // Set color for error message
+            std::cout << "Choose a number between (1 - 9). Error: <" << input << ">" << std::endl;
+            wrongInput = true;
+        }
+   }
+   }
 
     winner = checkWinner(); // Check if there's a winner after each move
 
@@ -133,7 +134,6 @@ bool TicTacToe::playerMove(char player, char& input, char symbol) {
         return true;
     return false;
 }
-
 // End the game and display result
 void TicTacToe::gameEnd() {
     setColor(4); // Set color for game end message
