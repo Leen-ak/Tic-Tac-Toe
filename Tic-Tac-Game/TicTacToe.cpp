@@ -154,11 +154,11 @@ void TicTacToe::playGame() {
     char secondUser;
     while (!winner && count > 1) {
         setColor(1); // Set color for player one's turn
-        playerOne = playerMove('1', firstUser, 'X');
+        playerOne = playerMove('1', firstUser, PLAYER_X);
         if (playerOne || count == 0) break;
 
         setColor(2); // Set color for player two's turn
-        playerTwo = playerMove('2', secondUser, 'O');
+        playerTwo = playerMove('2', secondUser, PLAYER_O);
         if (playerTwo || count == 0) break;
 
         resetColor(); // Reset color after each move
