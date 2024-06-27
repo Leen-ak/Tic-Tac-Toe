@@ -25,13 +25,13 @@ private:
     bool playerMove(char player, char& input, char symbol); // Handle player's move
     void gameEnd();                  // End the game and display result
 
-	static const char PLAYER_X = 'X';
-	static const char PLAYER_O = 'O';
-	static const int BLUE_COLOR = 1;
-	static const int GREEN_COLOR = 2;
-	static const int RED_COLOR = 4;
-	static const int WHITE_COLOR = 7;
-	static const int GRAY_COLOR = 8;
+   static const char PLAYER_X = 'X';
+   static const char PLAYER_O = 'O';
+   static const int BLUE_COLOR = 1;
+   static const int GREEN_COLOR = 2;
+   static const int RED_COLOR = 4;
+   static const int WHITE_COLOR = 7;
+   static const int GRAY_COLOR = 8;
     std::vector<char> board;         // Vector to store the game board
     bool winner;                     // Flag to indicate if there's a winner
     bool wrongInput;                 // Flag to track incorrect input
