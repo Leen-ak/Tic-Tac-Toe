@@ -101,7 +101,7 @@ bool TicTacToe::playerMove(char player, char& input, char symbol) {
     auto it = std::find(board.begin(), board.end(), input);
     for (int i = 0; i < board.size(); ++i) {
         if (it != board.end()) {
-            if (board[i] == *it && (board[i] != symbol || board[i] != symbol)) {
+            if (board[i] == *it && board[i] != symbol) {
                 count--;
                 board[i] = symbol;
                 system("cls"); // Clear screen (Windows specific)
