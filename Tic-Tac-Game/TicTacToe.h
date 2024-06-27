@@ -1,3 +1,10 @@
+/*
+* Name:		Leen Aboukhalil
+* Purpose:	Implementation of a Tic Tac Toe game with console interface and player interaction.
+* Date:		26/JUNE/2024
+*/
+
+
 #ifndef TICTACTOE_H
 #define TICTACTOE_H
 
